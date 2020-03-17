@@ -1,5 +1,6 @@
 import React from "react";
 import UserCard from "./UserCard";
+import {CardDeck}from "reactstrap";
 class UserCardContainer extends React.Component {
     state = {
         cardInfo: "",
@@ -18,12 +19,11 @@ class UserCardContainer extends React.Component {
             ));
     };
     render() {
-        return <>
+        return <CardDeck>
             <UserCard {...this.state.cardInfo} />
-            <h1>Followers:</h1>
             {this.state.followerInfo.map((entry, idx) =>
                 <UserCard {...entry} key={idx} />)}
-        </>;
+        </CardDeck>;
     }
 }
 export default UserCardContainer;
